@@ -29,6 +29,9 @@
         ],
         "lint": [
             "./vendor/bin/pint"
+        ],
+        "app": [
+            "./bin/application"
         ]
     }
 }
