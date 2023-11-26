@@ -27,11 +27,11 @@ You can change INSTALLED_FOLDER to what you want.
 ```sh
 bin/application save-image # qr images export into resources/images folder
 
-Please select expende type.
+Please select a type of export files.
   [0] eps
-  [1] png
-  [2] svg
-  [3] gif
+  [1] fpdf
+  [2] png
+  [3] svg
 
 # Type 0 to 3 what do you want
 
