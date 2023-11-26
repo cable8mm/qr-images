@@ -13,6 +13,13 @@ class Configure
 
     private const OUTPUT_PATH = '%s_%d_qrcode.%s';
 
+    public static array $qrcodeTypes = [
+        QROutputInterface::EPS,
+        QROutputInterface::FPDF,
+        QROutputInterface::GDIMAGE_PNG,
+        QROutputInterface::MARKUP_SVG,
+    ];
+
     public function __construct(string $interface)
     {
         $this->interface = $interface;

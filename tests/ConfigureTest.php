@@ -11,14 +11,7 @@ final class ConfigureTest extends TestCase
 {
     public function test_can_make_the_instant(): void
     {
-        $options = [
-            QROutputInterface::EPS,
-            QROutputInterface::FPDF,
-            QROutputInterface::GDIMAGE_PNG,
-            QROutputInterface::MARKUP_SVG,
-        ];
-
-        foreach ($options as $option) {
+        foreach (Configure::$qrcodeTypes as $option) {
             $configure = new Configure($option);
 
             $this->assertInstanceOf(Configure::class, $configure, 'Assert a instance is now creating.');

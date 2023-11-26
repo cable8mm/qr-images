@@ -5,7 +5,6 @@ namespace Cable8mm\QrImages\Commands;
 use Cable8mm\QrImages\Configure;
 use Cable8mm\QrImages\Path;
 use Cable8mm\QrImages\SimpleCsv;
-use chillerlan\QRCode\Output\QROutputInterface;
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
 use Symfony\Component\Console\Command\Command;
@@ -43,14 +42,7 @@ class SaveImage extends Command
         $helper = $this->getHelper('question');
         $question = new ChoiceQuestion(
             'Please select expende type.',
-            // choices can also be PHP objects that implement __toString() method
-            [
-                QROutputInterface::EPS,
-                QROutputInterface::GDIMAGE_PNG,
-                QROutputInterface::MARKUP_SVG,
-                QROutputInterface::GDIMAGE_GIF,
-            ],
-            0
+            Configure::$qrcodeTypes,
         );
 
         $question->setErrorMessage('Type %s is invalid.');
