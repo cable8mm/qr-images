@@ -18,12 +18,33 @@ Setting:
 composer install # install
 ```
 
-run:
+## Usage
 
 ```sh
-bin/application save-image # import external qr images into resources/images folder
+bin/application save-image # qr images export into resources/images folder
 
-bin/application export # export qr images to ai files in resources/export folder
+Please select expende type.
+  [0] eps
+  [1] png
+  [2] svg
+  [3] gif
+
+# Type 0 to 3 what do you want
+
+cd resources/export
+
+ls
+
+#Then you are able to generate qr images
+
+...
+
+```
+
+## Coding Style
+
+```sh
+composer lint
 ```
 
 ## Test
