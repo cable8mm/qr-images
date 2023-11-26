@@ -16,19 +16,11 @@ It used by symfony console.
 
 ## Installation
 
-Cloning:
-
 ```sh
-git clone https://github.com/cable8mm/qr-images.git
-
-cd qr-images
+composer create-project cable8mm/qr-images INSTALLED_FOLDER
 ```
 
-Setting:
-
-```sh
-composer install # install
-```
+You can change INSTALLED_FOLDER to what you want.
 
 ## Usage
 
