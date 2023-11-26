@@ -25,6 +25,8 @@ You can change INSTALLED_FOLDER to what you want.
 ## Usage
 
 ```sh
+mv resources/SSID_QR_TEST.csv resources/SSID_QR.csv # example file
+
 bin/application save-image # qr images export into resources/images folder
 
 Please select expende type.
@@ -44,6 +46,10 @@ ls
 ...
 
 ```
+
+### Notice
+
+You don't save source file - SSID_QR_TEST.csv as UTF-8 with BOM. If your source file is on UTF-8 with BOM, save it as UTF-8(without BOM) **again**.
 
 ## Coding Style
 
