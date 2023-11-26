@@ -14,7 +14,7 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 
 class SaveImage extends Command
 {
-    private const ORIGIN_FILE = 'SSID_QR_TEST.csv';
+    private const ORIGIN_FILE = 'SSID_QR.csv';
 
     protected static $defaultName = 'save-image';
 
@@ -56,7 +56,7 @@ class SaveImage extends Command
         $elements = SimpleCsv::get(Path::resources().self::ORIGIN_FILE);
 
         foreach ($elements as $element) {
-            (new QRCode($this->qrOptions))->render($element[1], $this->configure->getPath('5G', $element[0]));
+            (new QRCode($this->qrOptions))->render($element[1], $this->configure->getPath('5G', (int) $element[0]));
 
             (new QRCode($this->qrOptions))->render($element[2], $this->configure->getPath('24G', (int) $element[0]));
         }
