@@ -1,6 +1,18 @@
 ## About QR Images
 
+========
+
+[![Build](https://github.com/cable8mm/qr-images/actions/workflows/build.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/build.yml)
+[![PHP Linting (Pint)](https://github.com/cable8mm/qr-images/actions/workflows/coding-style-php.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/coding-style-php.yml)
+[![Latest Stable Version](http://poser.pugx.org/cable8mm/qr-images/v)](https://packagist.org/packages/cable8mm/qr-images)
+[![Total Downloads](http://poser.pugx.org/cable8mm/qr-images/downloads)](https://packagist.org/packages/cable8mm/qr-images)
+[![Latest Unstable Version](http://poser.pugx.org/cable8mm/qr-images/v/unstable)](https://packagist.org/packages/cable8mm/qr-images)
+[![License](http://poser.pugx.org/cable8mm/qr-images/license)](https://packagist.org/packages/cable8mm/qr-images)
+[![PHP Version Require](http://poser.pugx.org/cable8mm/qr-images/require/php)](https://packagist.org/packages/cable8mm/qr-images)
+
 QR Images is a tool from html to qr-codes.
+
+It used by symfony console.
 
 ## Installation
 
@@ -9,7 +21,7 @@ Cloning:
 ```sh
 git clone https://github.com/cable8mm/qr-images.git
 
-cd cd qr-images
+cd qr-images
 ```
 
 Setting:
