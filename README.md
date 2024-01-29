@@ -8,9 +8,9 @@
 [![License](http://poser.pugx.org/cable8mm/qr-images/license)](https://packagist.org/packages/cable8mm/qr-images)
 [![PHP Version Require](http://poser.pugx.org/cable8mm/qr-images/require/php)](https://packagist.org/packages/cable8mm/qr-images)
 
-QR Images is a tool from html to qr-codes.
+QR Images is a tool for converting Wifi connecting informations to QR codes.
 
-It used by symfony console.
+It is used by Symfony Console.
 
 ## Installation
 
@@ -18,14 +18,14 @@ It used by symfony console.
 composer create-project cable8mm/qr-images INSTALLED_FOLDER
 ```
 
-You can change INSTALLED_FOLDER to what you want.
+You have the flexibility to change INSTALLED_FOLDER to suit your preferences.
 
 ## Usage
 
 ```sh
 mv resources/SSID_QR_TEST.csv resources/SSID_QR.csv # example file
 
-bin/application save-image # qr images export into resources/images folder
+bin/application save-image # export QR images to the 'resources/images' folder.
 
 Please select a type of export files.
   [0] eps
@@ -33,13 +33,13 @@ Please select a type of export files.
   [2] png
   [3] svg
 
-# Type 0 to 3 what do you want
+# Type a number from 0 to 3 to indicate your preference.
 
 cd resources/export
 
 ls
 
-#Then you are able to generate qr images
+# After that, you can generate QR images.
 
 ...
 
@@ -47,7 +47,7 @@ ls
 
 ### Notice
 
-You don't save source file - SSID_QR_TEST.csv as UTF-8 with BOM. If your source file is on UTF-8 with BOM, save it as UTF-8(without BOM) **again**.
+Ensure that the source file, SSID_QR_TEST.csv, is not saved as UTF-8 with BOM. If your source file is currently in UTF-8 with BOM, please save it **again** as UTF-8 (without BOM).
 
 ## Coding Style
 
