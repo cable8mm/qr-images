@@ -46,8 +46,8 @@ class Configure
     /**
      * Get a absolute path + filename.
      *
-     * @param  string  $type 5G or 24G
-     * @param  int  $num qrcode path number
+     * @param  string  $type  5G or 24G
+     * @param  int  $num  qrcode path number
      *
      * @example (new Configure(QROutputInterface::GDIMAGE_PNG))->getPath('5G', 1)
      * @example return /Users/cable8mm/Sites/qr-images/resources/export/5G_132_qrcode.png or 24G_132_qrcode.png
