@@ -1,21 +1,22 @@
 ## About QR Images
 
-[![Build](https://github.com/cable8mm/qr-images/actions/workflows/build.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/build.yml)
-[![PHP Linting (Pint)](https://github.com/cable8mm/qr-images/actions/workflows/coding-style-php.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/coding-style-php.yml)
-[![Latest Stable Version](http://poser.pugx.org/cable8mm/qr-images/v)](https://packagist.org/packages/cable8mm/qr-images)
-[![Total Downloads](http://poser.pugx.org/cable8mm/qr-images/downloads)](https://packagist.org/packages/cable8mm/qr-images)
-[![Latest Unstable Version](http://poser.pugx.org/cable8mm/qr-images/v/unstable)](https://packagist.org/packages/cable8mm/qr-images)
-[![License](http://poser.pugx.org/cable8mm/qr-images/license)](https://packagist.org/packages/cable8mm/qr-images)
-[![PHP Version Require](http://poser.pugx.org/cable8mm/qr-images/require/php)](https://packagist.org/packages/cable8mm/qr-images)
+[![code-style](https://github.com/cable8mm/qr-images/actions/workflows/code-style.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/code-style.yml)
+[![run-tests](https://github.com/cable8mm/qr-images/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cable8mm/qr-images/actions/workflows/run-tests.yml)
+![Packagist Version](https://img.shields.io/packagist/v/cable8mm/qr-images)
+![Packagist Downloads](https://img.shields.io/packagist/dt/cable8mm/qr-images)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/cable8mm/qr-images/php)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/cable8mm/qr-images/symfony%2Fconsole)
+![Packagist Stars](https://img.shields.io/packagist/stars/cable8mm/qr-images)
+![Packagist License](https://img.shields.io/packagist/l/cable8mm/qr-images)
 
 QR Images is a tool for converting Wifi connecting informations to QR codes.
 
-It is used by Symfony Console.
+We have provided the API Documentation on the web. For more information, please visit https://www.palgle.com/auth-by-key/ ❤️
 
 ## Installation
 
 ```sh
-composer create-project cable8mm/qr-images INSTALLED_FOLDER
+composer create-project cable8mm/qr-imagess INSTALLED_FOLDER
 ```
 
 You have the flexibility to change INSTALLED_FOLDER to suit your preferences.

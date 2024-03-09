@@ -8,7 +8,10 @@ class SimpleCsv
 
     public array $elements;
 
-    public function __construct($path)
+    /**
+     * Constructor.
+     */
+    public function __construct(string $path)
     {
         $this->path = $path;
     }
@@ -29,9 +32,7 @@ class SimpleCsv
     }
 
     /**
-     * Fasade
-     *
-     * @param [type] ...$arguments
+     * Facade
      */
     public static function get(...$arguments): array
     {
