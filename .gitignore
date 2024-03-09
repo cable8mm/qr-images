@@ -465,3 +465,6 @@ tests/resources/**
 # End of https://www.toptal.com/developers/gitignore/api/macos,laravel,phpunit,composer,windows,phpstorm,eclipse,visualstudiocode,node
 
 SSID_QR.csv
+/cache
+/doctum.php
+/composer.lock
