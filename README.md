@@ -11,7 +11,7 @@
 
 QR Images is a tool for converting Wifi connecting informations to QR codes.
 
-We have provided the API Documentation on the web. For more information, please visit https://www.palgle.com/auth-by-key/ ❤️
+We have provided the API Documentation on the web. For more information, please visit https://www.palgle.com/qr-images/ ❤️
 
 ## Installation
 
