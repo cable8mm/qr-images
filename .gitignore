@@ -467,3 +467,4 @@ tests/resources/**
 SSID_QR.csv
 /cache
 /doctum.php
+/composer.lock
