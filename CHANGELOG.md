@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.1 - 2026-07-02
+
+### What's Changed
+
+* fix: add `stub.php` for box package. by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/11
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.0...v1.2.1
+
 ## v1.2.0 - 2026-07-02
 
 ### What's Changed
