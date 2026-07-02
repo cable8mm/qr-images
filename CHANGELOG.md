@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.0 - 2026-07-02
+
+### What's Changed
+
+* feat: improve and refactor codes, docs by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/10
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.1.1...v1.2.0
+
 ## v1.1.1 - 2024-03-09
 
 ### What's Changed
