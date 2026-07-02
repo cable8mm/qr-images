@@ -18,7 +18,7 @@ final class ConfigureTest extends TestCase
         }
     }
 
-    public function test_is_return_value_of_getPath_method_collect(): void
+    public function test_is_return_value_of_get_path_method_collect(): void
     {
         $expect = Path::resources().'export/5G_1_qrcode.png';
 
