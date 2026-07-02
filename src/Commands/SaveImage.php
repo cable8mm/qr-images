@@ -24,6 +24,11 @@ class SaveImage extends Command
 
     private Configure $configure;
 
+    public function __construct()
+    {
+        parent::__construct('save-image');
+    }
+
     public function setting(string $interface): void
     {
         $this->qrOptions = new QROptions(
