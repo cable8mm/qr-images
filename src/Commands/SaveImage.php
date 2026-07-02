@@ -78,9 +78,10 @@ class SaveImage extends Command
 
             // Determine which CSV files to process
             $csvFiles = $this->resolveCsvFiles($input, $output);
-            
+
             if (empty($csvFiles)) {
                 $output->writeln('<error>No CSV files found to process.</error>');
+
                 return Command::FAILURE;
             }
 
@@ -90,7 +91,7 @@ class SaveImage extends Command
 
             foreach ($csvFiles as $csvFile) {
                 $output->writeln(sprintf('<comment>Processing: %s</comment>', $csvFile));
-                
+
                 $elements = SimpleCsv::get($csvFile);
                 $totalNetworks += count($elements);
 
@@ -132,26 +133,28 @@ class SaveImage extends Command
     private function resolveCsvFiles(InputInterface $input, OutputInterface $output): array
     {
         $csvFiles = [];
-        
+
         // Check for --all flag
         if ($input->getOption('all')) {
             $csvFiles = $this->findAllCsvFiles();
             $output->writeln(sprintf('<comment>Found %d CSV file(s) in resources directory</comment>', count($csvFiles)));
+
             return $csvFiles;
         }
-        
+
         // Check for --file options
         $fileOptions = $input->getOption('file');
-        if (!empty($fileOptions)) {
+        if (! empty($fileOptions)) {
             foreach ($fileOptions as $file) {
                 $path = $this->resolveCsvPath($file);
                 if ($path) {
                     $csvFiles[] = $path;
                 }
             }
+
             return $csvFiles;
         }
-        
+
         // Check for positional argument
         $csvArg = $input->getArgument('csv');
         if ($csvArg) {
@@ -164,16 +167,17 @@ class SaveImage extends Command
                     $csvFiles[] = $path;
                 }
             }
+
             return $csvFiles;
         }
-        
+
         // Default: use configured CSV file
         $defaultCsv = Config::get('csv_file');
         $path = $this->resolveCsvPath($defaultCsv);
         if ($path) {
             $csvFiles[] = $path;
         }
-        
+
         return $csvFiles;
     }
 
@@ -183,18 +187,18 @@ class SaveImage extends Command
         if (Path::isAbsolutePath($csvFile)) {
             return file_exists($csvFile) ? $csvFile : null;
         }
-        
+
         // Try resources directory
         $resourcesPath = Path::resources().$csvFile;
         if (file_exists($resourcesPath)) {
             return $resourcesPath;
         }
-        
+
         // Try current directory
         if (file_exists($csvFile)) {
             return $csvFile;
         }
-        
+
         return null;
     }
 
@@ -202,10 +206,10 @@ class SaveImage extends Command
     {
         $resourcesPath = Path::resources();
         $csvFiles = glob($resourcesPath.'*.csv');
-        
+
         // Filter out test files (case-insensitive)
-        return array_filter($csvFiles, function($file) {
-            return !preg_match('/_TEST/i', basename($file));
+        return array_filter($csvFiles, function ($file) {
+            return ! preg_match('/_TEST/i', basename($file));
         });
     }
 }

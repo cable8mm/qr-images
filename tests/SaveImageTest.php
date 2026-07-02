@@ -67,7 +67,7 @@ final class SaveImageTest extends TestCase
             Config::set('paths.resources', $tempResourcesDir);
             Config::set('paths.export', $tempExportDir);
             Config::set('csv_file', basename($tempCsv));
-            
+
             $command = new SaveImage;
             $application = new Application;
             $application->add($command);
@@ -79,7 +79,7 @@ final class SaveImageTest extends TestCase
             $output = $commandTester->getDisplay();
             error_log('Command output: '.$output);
             error_log('Status code: '.$commandTester->getStatusCode());
-            
+
             $this->assertEquals(0, $commandTester->getStatusCode(), 'Command failed with output: '.$output);
         } finally {
             // Clean up

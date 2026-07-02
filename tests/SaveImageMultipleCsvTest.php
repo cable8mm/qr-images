@@ -18,7 +18,7 @@ final class SaveImageMultipleCsvTest extends TestCase
         file_put_contents($tempCsv, $csvContent);
 
         $tempExportDir = sys_get_temp_dir().'/test_export_single';
-        if (!is_dir($tempExportDir)) {
+        if (! is_dir($tempExportDir)) {
             mkdir($tempExportDir, 0777, true);
         }
 
@@ -26,7 +26,7 @@ final class SaveImageMultipleCsvTest extends TestCase
             Config::set('paths.resources', sys_get_temp_dir());
             Config::set('paths.export', $tempExportDir);
             Config::set('csv_file', basename($tempCsv));
-            
+
             $command = new SaveImage;
             $application = new Application;
             $application->add($command);
@@ -60,13 +60,13 @@ final class SaveImageMultipleCsvTest extends TestCase
         file_put_contents($tempCsv2, "2,WIFI:S:Test2_5G;T:WPA;P:pass2;;,WIFI:S:Test2_2.4G;T:WPA;P:pass2;;\n");
 
         $tempExportDir = sys_get_temp_dir().'/test_export_multi';
-        if (!is_dir($tempExportDir)) {
+        if (! is_dir($tempExportDir)) {
             mkdir($tempExportDir, 0777, true);
         }
 
         try {
             Config::set('paths.export', $tempExportDir);
-            
+
             $command = new SaveImage;
             $application = new Application;
             $application->add($command);
@@ -75,7 +75,7 @@ final class SaveImageMultipleCsvTest extends TestCase
             $commandTester->setInputs([Configure::$qrcodeTypes[0]]);
             $commandTester->execute([
                 'csv' => null,
-                '--file' => [$tempCsv1, $tempCsv2]
+                '--file' => [$tempCsv1, $tempCsv2],
             ]);
 
             $this->assertEquals(0, $commandTester->getStatusCode());
@@ -115,13 +115,13 @@ final class SaveImageMultipleCsvTest extends TestCase
         file_put_contents($tempCsv2, "2,WIFI:S:Test2_5G;T:WPA;P:pass2;;,WIFI:S:Test2_2.4G;T:WPA;P:pass2;;\n");
 
         $tempExportDir = sys_get_temp_dir().'/test_export_wild';
-        if (!is_dir($tempExportDir)) {
+        if (! is_dir($tempExportDir)) {
             mkdir($tempExportDir, 0777, true);
         }
 
         try {
             Config::set('paths.export', $tempExportDir);
-            
+
             $command = new SaveImage;
             $application = new Application;
             $application->add($command);
@@ -129,7 +129,7 @@ final class SaveImageMultipleCsvTest extends TestCase
 
             $commandTester->setInputs([Configure::$qrcodeTypes[0]]);
             $commandTester->execute([
-                'csv' => sys_get_temp_dir().'/wild_*.csv'
+                'csv' => sys_get_temp_dir().'/wild_*.csv',
             ]);
 
             $this->assertEquals(0, $commandTester->getStatusCode());
