@@ -64,7 +64,7 @@ class Path
         return $fullPath;
     }
 
-    private static function isAbsolutePath(string $path): bool
+    public static function isAbsolutePath(string $path): bool
     {
         return str_starts_with($path, '/') || 
                (strlen($path) >= 3 && 

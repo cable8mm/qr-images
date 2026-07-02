@@ -31,7 +31,7 @@ final class SaveImageTest extends TestCase
     {
         $command = new SaveImage;
 
-        $this->assertEquals('Save images', $command->getDescription());
+        $this->assertEquals('Save QR code images from CSV file(s)', $command->getDescription());
     }
 
     public function test_setting_method_sets_qr_options(): void
@@ -117,7 +117,7 @@ final class SaveImageTest extends TestCase
             $commandTester->execute([]);
 
             $output = $commandTester->getDisplay();
-            $this->assertStringContainsString('Error:', $output);
+            $this->assertStringContainsString('No CSV files found', $output);
             $this->assertEquals(Command::FAILURE, $commandTester->getStatusCode());
         } finally {
             // Restore the file
