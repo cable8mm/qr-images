@@ -29,9 +29,6 @@ jobs:
             - name: Install dependencies
               run: composer install --no-dev --no-interaction --prefer-dist
 
-            - name: Install dependencies
-              run: composer install --no-dev --no-interaction --prefer-dist
-
             - name: Install Box
               run: composer require humbug/box --dev
 

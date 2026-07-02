@@ -3,13 +3,14 @@
   "chmod": "0755",
   "directories": ["src", "vendor"],
   "files": ["bin/application"],
-  "finder": {
-    "exclude": ["tests", "docs", ".git"],
-    "in": ["."]
-  },
+  "finder": [
+    {
+      "exclude": ["tests", "docs", ".git"],
+      "in": ["."]
+    }
+  ],
   "git-version": "package_version",
   "main": "bin/application",
   "output": "build/qr-images.phar",
-  "stub": true,
-  "stub-path": "build/stub.php"
+  "stub": true
 }
