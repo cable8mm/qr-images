@@ -180,6 +180,32 @@ composer lint
 composer test
 ```
 
+## Build PHAR (Standalone Executable)
+
+You can build a standalone PHAR executable that doesn't require PHP installation:
+
+```sh
+# Install dependencies (including box)
+composer install
+
+# Build PHAR
+composer build
+
+# The executable will be created at: build/qr-images.phar
+
+# Make it executable and run
+chmod +x build/qr-images.phar
+./build/qr-images.phar save-image
+```
+
+### PHAR Features
+
+- Single standalone executable file
+- No PHP installation required on target machine
+- Includes all dependencies
+- Executable on any system with PHP 8.0+
+- Can be distributed as a single file
+
 ## License
 
 The QR Images is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
