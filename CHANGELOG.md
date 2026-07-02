@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.3 - 2026-07-02
+
+### What's Changed
+
+* fix: `box.jxon` by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/12
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.2...v1.2.3
+
 ## v1.2.2 - 2026-07-02
 
 **Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.1...v1.2.2
