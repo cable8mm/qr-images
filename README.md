@@ -16,7 +16,7 @@ We have provided the API Documentation on the web. For more information, please 
 ## Installation
 
 ```sh
-composer create-project cable8mm/qr-imagess INSTALLED_FOLDER
+composer create-project cable8mm/qr-images INSTALLED_FOLDER
 ```
 
 You have the flexibility to change INSTALLED_FOLDER to suit your preferences.

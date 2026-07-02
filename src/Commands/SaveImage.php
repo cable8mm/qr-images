@@ -41,7 +41,7 @@ class SaveImage extends Command
     {
         $helper = $this->getHelper('question');
         $question = new ChoiceQuestion(
-            'Please select expende type.',
+            'Please select export type.',
             Configure::$qrcodeTypes,
         );
 
