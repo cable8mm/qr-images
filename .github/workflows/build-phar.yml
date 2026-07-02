@@ -29,14 +29,14 @@ jobs:
             - name: Install dependencies
               run: composer install --no-dev --no-interaction --prefer-dist
 
-            - name: Install Box (PHAR builder)
-              run: |
-                  curl -L https://github.com/box-project/box/releases/download/4.0.0/box.phar -o box.phar
-                  # chmod +x box.phar
-                  # sudo mv box.phar /usr/local/bin/box
+            - name: Install dependencies
+              run: composer install --no-dev --no-interaction --prefer-dist
+
+            - name: Install Box
+              run: composer require humbug/box --dev
 
             - name: Build PHAR
-              run: php box.phar compile
+              run: vendor/bin/box compile
 
             - name: Verify PHAR
               run: |
