@@ -394,7 +394,7 @@ fabric.properties
 #/phpunit.xml
 
 # Build data
-/build/
+# /build/
 
 ### VisualStudioCode ###
 .vscode/*
