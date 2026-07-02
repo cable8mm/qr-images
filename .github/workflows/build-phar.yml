@@ -1,0 +1,60 @@
+name: Build PHAR
+
+on:
+    release:
+        types: [published]
+    push:
+        tags:
+            - "v*"
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 0
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.2"
+                  extensions: mbstring, zip, gd
+                  ini-values: phar.readonly=0
+                  coverage: none
+
+            - name: Install dependencies
+              run: composer install --no-dev --no-interaction --prefer-dist
+
+            - name: Install Box (PHAR builder)
+              run: |
+                  curl -L https://github.com/box-project/box/releases/download/4.0.0/box.phar -o box.phar
+                  # chmod +x box.phar
+                  # sudo mv box.phar /usr/local/bin/box
+
+            - name: Build PHAR
+              run: php box.phar compile
+
+            - name: Verify PHAR
+              run: |
+                  chmod +x build/qr-images.phar
+                  ./build/qr-images.phar --version || true
+                  ./build/qr-images.phar --help || true
+
+            - name: Upload PHAR to Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: build/qr-images.phar
+                  generate_release_notes: true
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Upload PHAR as artifact
+              uses: actions/upload-artifact@v6
+              with:
+                  name: qr-images-phar
+                  path: build/qr-images.phar
+                  retention-days: 30
