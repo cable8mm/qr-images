@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.4 - 2026-07-02
+
+### What's Changed
+
+* chore: reduce `box` size. by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/13
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.3...v1.2.4
+
 ## v1.2.3 - 2026-07-02
 
 ### What's Changed
