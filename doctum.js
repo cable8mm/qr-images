@@ -1,5 +1,5 @@
 var Doctum = {
-    treeJson: {"tree":{"l":0,"n":"","p":"","c":[{"l":1,"n":"Cable8mm","p":"Cable8mm","c":[{"l":2,"n":"QrImages","p":"Cable8mm/QrImages","c":[{"l":3,"n":"Commands","p":"Cable8mm/QrImages/Commands","c":[{"l":4,"n":"SaveImage","p":"Cable8mm/QrImages/Commands/SaveImage"}]},{"l":3,"n":"Exceptions","p":"Cable8mm/QrImages/Exceptions","c":[{"l":4,"n":"QrImagesInvalidArgumentException","p":"Cable8mm/QrImages/Exceptions/QrImagesInvalidArgumentException"}]},{"l":3,"n":"Configure","p":"Cable8mm/QrImages/Configure"},{"l":3,"n":"Path","p":"Cable8mm/QrImages/Path"},{"l":3,"n":"SimpleCsv","p":"Cable8mm/QrImages/SimpleCsv"}]}]}]},"treeOpenLevel":2},
+    treeJson: {"tree":{"l":0,"n":"","p":"","c":[{"l":1,"n":"Cable8mm","p":"Cable8mm","c":[{"l":2,"n":"QrImages","p":"Cable8mm/QrImages","c":[{"l":3,"n":"Commands","p":"Cable8mm/QrImages/Commands","c":[{"l":4,"n":"SaveImage","p":"Cable8mm/QrImages/Commands/SaveImage"}]},{"l":3,"n":"Exceptions","p":"Cable8mm/QrImages/Exceptions","c":[{"l":4,"n":"QrImagesInvalidArgumentException","p":"Cable8mm/QrImages/Exceptions/QrImagesInvalidArgumentException"},{"l":4,"n":"QrImagesRuntimeException","p":"Cable8mm/QrImages/Exceptions/QrImagesRuntimeException"}]},{"l":3,"n":"Config","p":"Cable8mm/QrImages/Config"},{"l":3,"n":"Configure","p":"Cable8mm/QrImages/Configure"},{"l":3,"n":"Path","p":"Cable8mm/QrImages/Path"},{"l":3,"n":"SimpleCsv","p":"Cable8mm/QrImages/SimpleCsv"}]}]}]},"treeOpenLevel":2},
     /** @var boolean */
     treeLoaded: false,
     /** @var boolean */
@@ -261,10 +261,13 @@ var Doctum = {
     /**
      * Clean the search query
      *
-     * @param string query
+     * @param string|null query
      * @return string
      */
     cleanSearchQuery: function (query) {
+        if (typeof query !== 'string') {
+            return '';
+        }
         // replace any chars that could lead to injecting code in our regex
         // remove start or end spaces
         // replace backslashes by an escaped version, use case in search: \myRootFunction
