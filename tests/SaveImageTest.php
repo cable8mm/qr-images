@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Cable8mm\QrImages\Commands\SaveImage;
+use Cable8mm\QrImages\Config;
 use Cable8mm\QrImages\Configure;
 use Cable8mm\QrImages\Path;
 use PHPUnit\Framework\TestCase;
@@ -61,17 +62,25 @@ final class SaveImageTest extends TestCase
         }
 
         try {
+            // Set the resources path to temp directory where CSV is located
+            $tempResourcesDir = sys_get_temp_dir();
+            Config::set('paths.resources', $tempResourcesDir);
+            Config::set('paths.export', $tempExportDir);
+            Config::set('csv_file', basename($tempCsv));
+            
             $command = new SaveImage;
             $application = new Application;
             $application->add($command);
             $commandTester = new CommandTester($command);
 
-            // Mock the Path class to use temp directory
-            // Note: This is a simplified test - in real scenarios you'd use dependency injection
             $commandTester->setInputs([Configure::$qrcodeTypes[0]]);
             $commandTester->execute([]);
 
-            $this->assertEquals(0, $commandTester->getStatusCode());
+            $output = $commandTester->getDisplay();
+            error_log('Command output: '.$output);
+            error_log('Status code: '.$commandTester->getStatusCode());
+            
+            $this->assertEquals(0, $commandTester->getStatusCode(), 'Command failed with output: '.$output);
         } finally {
             // Clean up
             if (file_exists($tempCsv)) {
@@ -84,6 +93,7 @@ final class SaveImageTest extends TestCase
                 }
                 rmdir($tempExportDir);
             }
+            // Note: tempResourcesDir is sys_get_temp_dir(), so we don't delete it
         }
     }
 

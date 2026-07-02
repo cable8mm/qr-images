@@ -2,6 +2,7 @@
 
 namespace Cable8mm\QrImages\Commands;
 
+use Cable8mm\QrImages\Config;
 use Cable8mm\QrImages\Configure;
 use Cable8mm\QrImages\Exceptions\QrImagesRuntimeException;
 use Cable8mm\QrImages\Path;
@@ -33,11 +34,16 @@ class SaveImage extends Command
 
     public function setting(string $interface): void
     {
+        $eccLevel = Config::get('qr_code.eccLevel', QRCode::ECC_L);
+        $version = Config::get('qr_code.version', 3);
+        $quietzoneSize = Config::get('qr_code.quietzoneSize', 4);
+
         $this->qrOptions = new QROptions(
             [
-                'eccLevel' => QRCode::ECC_L,
+                'eccLevel' => $eccLevel,
                 'outputType' => $interface,
-                'version' => 3,
+                'version' => $version,
+                'quietzoneSize' => $quietzoneSize,
             ]
         );
 
@@ -61,7 +67,8 @@ class SaveImage extends Command
 
             $output->writeln('You have just selected: '.$type);
 
-            $elements = SimpleCsv::get(Path::resources().self::ORIGIN_FILE);
+            $csvFile = Config::get('csv_file');
+            $elements = SimpleCsv::get(Path::resources().$csvFile);
 
             $output->writeln(sprintf('Processing %d WiFi networks...', count($elements)));
 
