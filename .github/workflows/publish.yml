@@ -1,11 +1,9 @@
-name: Build PHAR
+name: Publish to Homebrew
 
 on:
   release:
     types: [published]
-  push:
-    tags:
-      - "v*"
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -40,10 +38,11 @@ jobs:
       - name: Verify PHAR
         run: |
           chmod +x build/qr-images.phar
-          ./build/qr-images.phar --version || true
-          ./build/qr-images.phar --help || true
+          ./build/qr-images.phar --version
+          ./build/qr-images.phar --help
 
       - name: Upload PHAR to Release
+        if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
           files: build/qr-images.phar
@@ -51,9 +50,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload PHAR as artifact
-        uses: actions/upload-artifact@v6
-        with:
-          name: qr-images-phar
-          path: build/qr-images.phar
-          retention-days: 30
+      - name: Calculate SHA256
+        id: sha256
+        run: |
+          echo "sha256=$(sha256sum build/qr-images.phar | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+
+      - name: Print SHA256
+        run: |
+          echo "${{ steps.sha256.outputs.sha256 }}"
+
+      # - name: Upload PHAR as artifact
+      #   uses: actions/upload-artifact@v6
+      #   with:
+      #     name: qr-images-phar
+      #     path: build/qr-images.phar
+      #     retention-days: 30
