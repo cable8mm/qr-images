@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.6 - 2026-07-07
+
+### What's Changed
+
+* test: `homebrew` tap by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/15
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.5...v1.2.6
+
 ## v1.2.5 - 2026-07-07
 
 ### What's Changed
