@@ -3,7 +3,6 @@ name: Publish to Homebrew
 on:
   release:
     types: [published]
-  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -12,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -43,7 +42,7 @@ jobs:
 
       - name: Upload PHAR to Release
         if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: build/qr-images.phar
           generate_release_notes: true
@@ -55,13 +54,17 @@ jobs:
         run: |
           echo "sha256=$(sha256sum build/qr-images.phar | awk '{print $1}')" >> "$GITHUB_OUTPUT"
 
-      - name: Print SHA256
-        run: |
-          echo "${{ steps.sha256.outputs.sha256 }}"
+      - name: Upload PHAR as artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: qr-images-phar
+          path: build/qr-images.phar
+          retention-days: 30
 
-      # - name: Upload PHAR as artifact
-      #   uses: actions/upload-artifact@v6
-      #   with:
-      #     name: qr-images-phar
-      #     path: build/qr-images.phar
-      #     retention-days: 30
+      - name: Checkout Homebrew Tap
+        if: github.event_name == 'release'
+        uses: actions/checkout@v7
+        with:
+          repository: cable8mm/homebrew-tap
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          path: homebrew-tap
