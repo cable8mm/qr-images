@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.9 - 2026-07-07
+
+### What's Changed
+
+* fix: heredoc by [@cable8mm](https://github.com/cable8mm) in https://github.com/cable8mm/qr-images/pull/18
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.8...v1.2.9
+
 ## v1.2.8 - 2026-07-07
 
 ### What's Changed
