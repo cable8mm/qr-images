@@ -68,3 +68,12 @@ jobs:
           repository: cable8mm/homebrew-tap
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
           path: homebrew-tap
+
+      - name: Test Modify Formula
+        run: |
+          echo "# test" >> homebrew-tap/qr-images.rb
+
+      - name: Show Diff
+        run: |
+          cd homebrew-tap
+          git diff
