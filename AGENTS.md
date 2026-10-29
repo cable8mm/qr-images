@@ -13,7 +13,6 @@ qr-images/
 ├── config/
 │   └── qr-images.php       # Configuration file (optional)
 ├── resources/
-│   ├── SSID_QR_TEST.csv    # Example CSV file
 │   ├── export/             # Generated QR codes output directory
 │   └── images/             # Alternative output directory
 ├── src/
@@ -32,7 +31,9 @@ qr-images/
 │   ├── PathTest.php
 │   ├── SaveImageTest.php
 │   ├── SaveImageMultipleCsvTest.php
-│   └── SimpleCsvTest.php
+│   ├── SimpleCsvTest.php
+│   └── Fixtures/
+│       └── SSID_QR_TEST.csv
 ├── composer.json
 ├── phpunit.xml.dist
 └── README.md
@@ -230,7 +231,7 @@ public function test_description(): void
 3. **Exception handling** - Always catch and handle exceptions in commands
 4. **Test cleanup** - Always clean up temporary files in tests
 5. **CSV validation** - Always validate CSV structure before processing
-6. **UTF-8 without BOM** - CSV files must be UTF-8 without BOM
+6. **CSV encoding** - CSV files should be UTF-8; the parser strips a UTF-8 BOM from the first field
 
 ## Recent Changes
 

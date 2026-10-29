@@ -10,7 +10,7 @@ final class SimpleCsvTest extends TestCase
 {
     public function test_can_read_valid_csv_file(): void
     {
-        $path = __DIR__.'/../resources/SSID_QR_TEST.csv';
+        $path = __DIR__.'/Fixtures/SSID_QR_TEST.csv';
 
         $elements = SimpleCsv::get($path);
 

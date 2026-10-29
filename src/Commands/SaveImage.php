@@ -7,6 +7,7 @@ use Cable8mm\QrImages\Configure;
 use Cable8mm\QrImages\Exceptions\QrImagesRuntimeException;
 use Cable8mm\QrImages\Path;
 use Cable8mm\QrImages\SimpleCsv;
+use chillerlan\QRCode\Common\Version;
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
 use Symfony\Component\Console\Command\Command;
@@ -18,8 +19,6 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 
 class SaveImage extends Command
 {
-    private const ORIGIN_FILE = 'SSID_QR.csv';
-
     protected static $defaultName = 'save-image';
 
     protected static $defaultDescription = 'Save QR code images from CSV file(s)';
@@ -37,7 +36,7 @@ class SaveImage extends Command
     public function setting(string $interface): void
     {
         $eccLevel = Config::get('qr_code.eccLevel', QRCode::ECC_L);
-        $version = Config::get('qr_code.version', 3);
+        $version = Config::get('qr_code.version', Version::AUTO);
         $quietzoneSize = Config::get('qr_code.quietzoneSize', 4);
 
         $this->qrOptions = new QROptions(

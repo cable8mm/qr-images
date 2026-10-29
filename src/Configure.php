@@ -52,7 +52,7 @@ class Configure
      * @example (new Configure(QROutputInterface::GDIMAGE_PNG))->getPath('5G', 1)
      * @example return /Users/cable8mm/Sites/qr-images/resources/export/5G_132_qrcode.png or 24G_132_qrcode.png
      */
-    public function getPath(string $type, int $num): ?string
+    public function getPath(string $type, int $num): string
     {
         $filename = sprintf(self::OUTPUT_PATH, $type, $num, $this->fileExtention);
 
