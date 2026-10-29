@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Cable8mm\QrImages\Config;
+use chillerlan\QRCode\Common\Version;
 use chillerlan\QRCode\QRCode;
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +36,7 @@ final class ConfigTest extends TestCase
         $quietzoneSize = Config::get('qr_code.quietzoneSize');
 
         $this->assertEquals(QRCode::ECC_L, $eccLevel);
-        $this->assertEquals(3, $version);
+        $this->assertEquals(Version::AUTO, $version);
         $this->assertEquals(4, $quietzoneSize);
     }
 

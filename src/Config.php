@@ -2,6 +2,7 @@
 
 namespace Cable8mm\QrImages;
 
+use chillerlan\QRCode\Common\Version;
 use chillerlan\QRCode\QRCode;
 
 class Config
@@ -14,7 +15,7 @@ class Config
         'csv_file' => 'SSID_QR.csv',
         'qr_code' => [
             'eccLevel' => QRCode::ECC_L,
-            'version' => 3,
+            'version' => Version::AUTO,
             'quietzoneSize' => 4,
         ],
         'paths' => [

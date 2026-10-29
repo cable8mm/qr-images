@@ -1,5 +1,6 @@
 <?php
 
+use chillerlan\QRCode\Common\Version;
 use chillerlan\QRCode\QRCode;
 
 return [
@@ -7,7 +8,7 @@ return [
 
     'qr_code' => [
         'eccLevel' => QRCode::ECC_L,
-        'version' => 3,
+        'version' => Version::AUTO,
         'quietzoneSize' => 4,
     ],
 

@@ -27,7 +27,7 @@ You have the flexibility to change INSTALLED_FOLDER to suit your preferences.
 
 ```sh
 # Rename example CSV file
-mv resources/SSID_QR_TEST.csv resources/SSID_QR.csv
+cp tests/Fixtures/SSID_QR_TEST.csv resources/SSID_QR.csv
 
 # Run the command
 bin/application save-image
@@ -73,7 +73,7 @@ Your CSV file should have the following format (3 columns minimum):
 
 ### Notice
 
-Ensure that the source file is not saved as UTF-8 with BOM. If your source file is currently in UTF-8 with BOM, please save it **again** as UTF-8 (without BOM).
+CSV files should use UTF-8. A UTF-8 BOM is removed from the first field automatically.
 
 ## Configuration
 
@@ -93,7 +93,7 @@ return [
     // QR Code settings
     'qr_code' => [
         'eccLevel' => \chillerlan\QRCode\QRCode::ECC_L,  // Error correction: L, M, Q, H
-        'version' => 3,                // QR version (1-40)
+        'version' => \chillerlan\QRCode\Common\Version::AUTO, // Automatically fit the QR data; set 1-40 to force a version
         'quietzoneSize' => 4,          // Quiet zone size
     ],
 
