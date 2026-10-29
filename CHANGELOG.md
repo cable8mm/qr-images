@@ -1,5 +1,19 @@
 # Release Notes
 
+## v1.2.10 - 2026-10-29
+
+### What's Changed
+
+* fix: improve QR defaults and move CSV fixture by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/cable8mm/qr-images/pull/19
+* chore: remove GitHub Pages publishing by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/cable8mm/qr-images/pull/20
+* chore: disable release publishing workflow by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/cable8mm/qr-images/pull/21
+
+### New Contributors
+
+* [@replworks-bot](https://github.com/replworks-bot) made their first contribution in https://github.com/cable8mm/qr-images/pull/19
+
+**Full Changelog**: https://github.com/cable8mm/qr-images/compare/v1.2.9...v1.2.10
+
 ## v1.2.9 - 2026-07-07
 
 ### What's Changed
