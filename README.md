@@ -11,6 +11,8 @@
 
 QR Images is a tool for converting WiFi connection information to QR codes.
 
+> **Project status:** Development and releases have ended. This tool was created for a customer workflow that is no longer in use. The repository is retained for historical reference, and the sample CSV remains as a test fixture.
+
 ## Installation
 
 ```sh
